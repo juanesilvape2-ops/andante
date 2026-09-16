@@ -1,24 +1,25 @@
 import type { CSSProperties } from "react";
 
-import type { Shot } from "@/content/photos";
+import type { Photo } from "@/content/photos";
+import { assetUrl } from "@/lib/asset-url";
 
-function Plate({ shot }: { shot: Shot }) {
+function Plate({ photo }: { photo: Photo }) {
   return (
-    <figure className="av-plate" style={{ flexGrow: shot.ratio } as CSSProperties}>
+    <figure className="av-plate" style={{ flexGrow: photo.w / photo.h } as CSSProperties}>
       <img
-        alt={shot.note}
-        height={shot.h}
+        alt={photo.note}
+        height={photo.h}
         loading="lazy"
-        src={`/assets/work/${shot.file}`}
-        width={shot.w}
+        src={assetUrl(`assets/work/${photo.file}`)}
+        width={photo.w}
       />
-      <figcaption>{shot.note}</figcaption>
+      <figcaption>{photo.note}</figcaption>
     </figure>
   );
 }
 
 export interface PhotoGridProps {
-  rows: Shot[][];
+  rows: Photo[][];
   /** Per-row inset class, e.g. "av-row--inset-right"; index-aligned with `rows`. */
   insets?: string[];
 }
@@ -27,9 +28,9 @@ export function PhotoGrid({ rows, insets = [] }: PhotoGridProps) {
   return (
     <div className="av-rows">
       {rows.map((row, i) => (
-        <div className={`av-row ${insets[i] ?? ""}`.trim()} key={row[0].file}>
-          {row.map((shot) => (
-            <Plate key={shot.file} shot={shot} />
+        <div className={`av-row ${insets[i] ?? ""}`.trim()} key={row[0].id}>
+          {row.map((photo) => (
+            <Plate key={photo.id} photo={photo} />
           ))}
         </div>
       ))}

@@ -480,7 +480,8 @@ export function ScrollScrub({
           if (!scene) {
             return null;
           }
-          const Heading = segment.sectionIndex === 0 ? "h1" : "h2";
+          // Always h2: the page supplies its own h1 elsewhere.
+          const Heading = "h2";
 
           return (
             <article

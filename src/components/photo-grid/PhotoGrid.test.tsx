@@ -1,16 +1,16 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
-import type { Shot } from "@/content/photos";
+import type { Photo } from "@/content/photos";
 
 import { PhotoGrid } from "./PhotoGrid";
 
-const rows: Shot[][] = [
+const rows: Photo[][] = [
   [
-    { file: "a.jpg", h: 100, note: "Shot A", ratio: 0.8, w: 80 },
-    { file: "b.jpg", h: 100, note: "Shot B", ratio: 0.8, w: 80 },
+    { category: "retratos", file: "a.jpg", h: 100, id: "a", note: "Shot A", w: 80 },
+    { category: "retratos", file: "b.jpg", h: 100, id: "b", note: "Shot B", w: 80 },
   ],
-  [{ file: "c.jpg", h: 100, note: "Shot C", ratio: 1.7, w: 170 }],
+  [{ category: "retratos", file: "c.jpg", h: 100, id: "c", note: "Shot C", w: 170 }],
 ];
 
 describe("PhotoGrid", () => {

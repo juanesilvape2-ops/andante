@@ -1,6 +1,8 @@
 /* ============================================================
-   Andante / Esteban Silva — design tokens (design-brief.md)
-   Monochrome by design: the only colour on the page is his work.
+   Andante / Esteban Silva — design tokens
+   Dark, editorial base. One accent color: a warm safelight amber —
+   the actual color a darkroom glows under while a print develops,
+   which is also, fittingly, the color of true selenium toning.
    ============================================================ */
 :root {
   --av-base: #07090c;
@@ -9,7 +11,8 @@
   --av-muted: #8a9299;
   --av-rule: #1d232a;
   --av-silver: #c3cad1;
-  --av-selenium: #8fa8be;
+  --av-selenium: #e07a3f;
+  --av-selenium-dim: #8a5330;
   --av-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
   --av-sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
 }

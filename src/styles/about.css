@@ -1,0 +1,123 @@
+.av-about {
+  max-width: 980px;
+  padding-bottom: clamp(72px, 10vw, 120px);
+}
+.av-about .av-index {
+  margin-bottom: 10px;
+}
+.av-about-kicker {
+  font-family: var(--av-serif);
+  font-style: italic;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  line-height: 1.25;
+  max-width: 24ch;
+  margin: 0 0 clamp(32px, 5vw, 56px);
+  color: var(--av-ink);
+}
+
+/* Editorial two-column layout: portrait beside the copy on wider
+   viewports, stacked on mobile — a magazine spread instead of a
+   straight-down scroll. */
+.av-about-columns {
+  display: grid;
+  grid-template-columns: minmax(220px, 300px) 1fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: start;
+}
+.av-about-portrait-col {
+  position: sticky;
+  top: clamp(96px, 14vw, 140px);
+}
+.av-about-portrait {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: var(--av-base-lift);
+  overflow: hidden;
+}
+.av-about-portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.av-about-copy p {
+  color: var(--av-muted);
+  font-size: 1rem;
+  line-height: 1.65;
+  max-width: 60ch;
+  margin: 0 0 1.4em;
+}
+.av-about-copy p:first-child {
+  color: var(--av-ink);
+  font-size: 1.08rem;
+}
+.av-about-copy p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 780px) {
+  .av-about-columns {
+    grid-template-columns: 1fr;
+  }
+  .av-about-portrait-col {
+    position: static;
+    width: min(320px, 60%);
+    margin-bottom: clamp(28px, 5vw, 44px);
+  }
+}
+
+/* --- "cuatro frentes" category list --- */
+.av-about-work {
+  margin-top: clamp(56px, 8vw, 88px);
+  padding-top: clamp(32px, 5vw, 48px);
+  border-top: 1px solid var(--av-rule);
+}
+.av-about-work .av-index {
+  margin-bottom: 20px;
+}
+.av-about-work-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.av-about-work-list li {
+  border-bottom: 1px solid var(--av-rule);
+}
+.av-about-work-list li:first-child {
+  border-top: 1px solid var(--av-rule);
+}
+.av-about-work-link {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 2px;
+  text-decoration: none;
+  color: var(--av-ink);
+}
+.av-about-work-label {
+  font-family: var(--av-serif);
+  font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+  transition: color 0.22s ease;
+}
+.av-about-work-tagline {
+  color: var(--av-muted);
+  font-size: 0.85rem;
+  text-align: right;
+  max-width: 32ch;
+}
+.av-about-work-link:hover .av-about-work-label,
+.av-about-work-link:focus-visible .av-about-work-label {
+  color: var(--av-selenium);
+}
+
+@media (max-width: 640px) {
+  .av-about-work-link {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .av-about-work-tagline {
+    text-align: left;
+  }
+}

@@ -23,6 +23,12 @@ body {
   padding: 0 clamp(20px, 5vw, 72px);
 }
 
+/* Plain content pages (no full-bleed hero) sit under the fixed nav. */
+.av-page-main {
+  padding-top: clamp(96px, 15vw, 148px);
+  min-height: 100dvh;
+}
+
 :focus-visible {
   outline: 1px solid var(--av-selenium);
   outline-offset: 3px;

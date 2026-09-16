@@ -1,19 +1,21 @@
+import { NavLink } from "react-router";
+
 export function SiteNav() {
   return (
     <nav className="av-nav">
-      <a className="av-wordmark" href="#top">
-        Esteban Silva <span>/ Andante</span>
-      </a>
+      <NavLink className="av-wordmark" to="/">
+        Esteban Silva
+      </NavLink>
       <div className="av-navlinks">
-        <a className="av-navlink" href="#moda">
-          Moda
-        </a>
-        <a className="av-navlink" href="#calle">
-          Calle
-        </a>
-        <a className="av-cta-rule" href="#contacto">
+        <NavLink className="av-navlink" to="/galeria">
+          Galeria
+        </NavLink>
+        <NavLink className="av-navlink" to="/sobre-mi">
+          Sobre mi
+        </NavLink>
+        <NavLink className="av-cta-rule" to="/contacto">
           Escribeme
-        </a>
+        </NavLink>
       </div>
     </nav>
   );

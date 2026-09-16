@@ -1,0 +1,181 @@
+/* ============================================================
+   Home — category mosaic ("Cuatro frentes", presented up front)
+   A bento-style grid: one bold, substantial tile per category,
+   varied proportions instead of a uniform thumbnail row. Tiles
+   crop via object-fit (unlike the justified PhotoGrid, which never
+   crops) because this is a confident cover treatment, not a plate.
+   ============================================================ */
+.av-mosaic {
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr 0.9fr;
+  grid-auto-rows: clamp(200px, 24vw, 320px);
+  gap: clamp(10px, 1.5vw, 20px);
+  margin-top: clamp(28px, 4vw, 52px);
+}
+.av-mosaic-slot {
+  min-width: 0;
+  min-height: 0;
+}
+.av-mosaic-slot--retratos {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+.av-mosaic-slot--street {
+  grid-column: 2 / 4;
+  grid-row: 1 / 2;
+}
+.av-mosaic-slot--deportiva {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+.av-mosaic-slot--comercial {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+
+.av-mosaic-tile {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--av-base-lift);
+  text-decoration: none;
+}
+.av-mosaic-tile img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.av-mosaic-tile:hover img,
+.av-mosaic-tile:focus-visible img {
+  transform: scale(1.045);
+}
+.av-mosaic-tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(7, 9, 12, 0.86) 0%,
+    rgba(7, 9, 12, 0.08) 46%,
+    transparent 68%
+  );
+  pointer-events: none;
+}
+.av-mosaic-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: clamp(16px, 2.4vw, 28px);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.av-mosaic-index {
+  font-family: var(--av-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--av-selenium);
+}
+.av-mosaic-label {
+  font-family: var(--av-serif);
+  font-weight: 400;
+  font-size: clamp(1.3rem, 2.6vw, 2rem);
+  line-height: 1.05;
+  color: var(--av-ink);
+  max-width: 20ch;
+}
+.av-mosaic-tagline {
+  font-size: 0.82rem;
+  color: var(--av-silver);
+  max-width: 34ch;
+  opacity: 0;
+  max-height: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.32s ease,
+    transform 0.32s ease;
+}
+.av-mosaic-slot--retratos .av-mosaic-tagline {
+  opacity: 1;
+  max-height: none;
+  transform: none;
+}
+.av-mosaic-tile:hover .av-mosaic-tagline,
+.av-mosaic-tile:focus-visible .av-mosaic-tagline {
+  opacity: 1;
+  max-height: none;
+  transform: none;
+}
+
+/* Staggered entrance: each slot extends the base .av-reveal transition
+   (see reveal.css) with an incremental delay so the mosaic assembles
+   tile by tile instead of arriving as one flat block. */
+.av-mosaic-slot--street.av-reveal {
+  transition-delay: 90ms;
+}
+.av-mosaic-slot--deportiva.av-reveal {
+  transition-delay: 160ms;
+}
+.av-mosaic-slot--comercial.av-reveal {
+  transition-delay: 230ms;
+}
+
+@media (max-width: 860px) {
+  .av-mosaic {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: clamp(200px, 46vw, 280px);
+  }
+  .av-mosaic-slot--retratos {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+  }
+  .av-mosaic-slot--street {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+  }
+  .av-mosaic-slot--deportiva {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
+  .av-mosaic-slot--comercial {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+  }
+}
+
+@media (max-width: 560px) {
+  .av-mosaic {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 62vw;
+  }
+  .av-mosaic-slot--retratos,
+  .av-mosaic-slot--street,
+  .av-mosaic-slot--deportiva,
+  .av-mosaic-slot--comercial {
+    grid-column: 1 / 2;
+    grid-row: auto;
+  }
+  .av-mosaic-tagline {
+    opacity: 1;
+    max-height: none;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .av-mosaic-tile img {
+    transition: none;
+  }
+  .av-mosaic-tile:hover img,
+  .av-mosaic-tile:focus-visible img {
+    transform: none;
+  }
+  .av-mosaic-tagline {
+    transition: none;
+  }
+}

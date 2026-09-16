@@ -18,11 +18,11 @@ describe("index.html <head> matches content/site-meta.ts", () => {
     expect(html).toContain(`content="${siteMeta.description}"`);
   });
 
-  it("references the OG image path", () => {
-    expect(html).toContain(`content="${siteMeta.ogImageUrl}"`);
+  it("references the OG image path, resolved against the app's base URL", () => {
+    expect(html).toContain(`content="%BASE_URL%${siteMeta.ogImageUrl}"`);
   });
 
-  it("references the favicon path", () => {
-    expect(html).toContain(`href="${siteMeta.faviconUrl}"`);
+  it("references the favicon path, resolved against the app's base URL", () => {
+    expect(html).toContain(`href="%BASE_URL%${siteMeta.faviconUrl}"`);
   });
 });

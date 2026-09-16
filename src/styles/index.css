@@ -3,5 +3,10 @@
 @import "./nav.css";
 @import "./sections.css";
 @import "./photo-grid.css";
+@import "./mosaic.css";
 @import "./statement.css";
+@import "./about.css";
+@import "./gallery.css";
+@import "./lightbox.css";
+@import "./reveal.css";
 @import "./footer.css";

@@ -1,0 +1,83 @@
+/* --- gallery page: quick-nav, stacked category sections, empty state --- */
+
+/* Table-of-contents style quick-nav — reads as a jump list, not a set of
+   active/inactive toggle tabs, since nothing is hidden by clicking these. */
+.av-gallery-quicknav {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: clamp(20px, 4vw, 40px);
+  row-gap: 10px;
+  margin-top: clamp(28px, 4vw, 48px);
+  padding-bottom: clamp(18px, 3vw, 28px);
+  border-bottom: 1px solid var(--av-rule);
+}
+.av-gallery-quicknav-link {
+  position: relative;
+  padding-left: 20px;
+  color: var(--av-muted);
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: color 0.22s ease;
+}
+.av-gallery-quicknav-link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 12px;
+  height: 1px;
+  background: var(--av-selenium);
+}
+.av-gallery-quicknav-link:hover,
+.av-gallery-quicknav-link:focus-visible {
+  color: var(--av-ink);
+}
+
+/* Each category is its own always-visible section — generous, fluid spacing
+   between them (matches the scale already used in sections.css/about.css)
+   so scrolling through feels like a mosaic laid out with room to breathe,
+   not a tight, stacked web-app list. scroll-margin-top keeps the fixed nav
+   from covering a section's heading when a #hash link lands on it. */
+.av-gallery-section {
+  padding-top: clamp(72px, 12vw, 148px);
+  scroll-margin-top: clamp(90px, 14vw, 130px);
+}
+.av-gallery-section:first-of-type {
+  padding-top: clamp(40px, 6vw, 64px);
+}
+
+.av-gallery {
+  padding-bottom: clamp(24px, 4vw, 40px);
+}
+.av-gallery-empty {
+  margin-top: clamp(26px, 4vw, 52px);
+  padding: clamp(40px, 8vw, 80px) 0;
+  border-top: 1px solid var(--av-rule);
+  color: var(--av-muted);
+  font-size: 0.88rem;
+  text-align: center;
+}
+
+/* the gallery's plates are clickable (PhotoGrid's aren't) — reuse its
+   .av-plate look, add a borderless button wrapper, and keep the caption
+   from swallowing the click. */
+.av-plate-trigger {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.av-gallery .av-plate figcaption {
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .av-gallery-quicknav-link {
+    transition: none;
+  }
+}

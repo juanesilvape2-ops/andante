@@ -31,3 +31,30 @@
   display: block;
   margin-bottom: 14px;
 }
+
+.av-teaser-cta {
+  display: inline-block;
+  margin-top: clamp(28px, 4vw, 44px);
+}
+
+/* --- big centered name/role, top of Inicio --- */
+.av-hero-title {
+  padding: clamp(120px, 18vw, 200px) 0 clamp(36px, 6vw, 60px);
+  text-align: center;
+}
+.av-hero-title h1 {
+  font-family: var(--av-serif);
+  font-weight: 400;
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  line-height: 1;
+  margin: 0;
+  color: var(--av-ink);
+}
+.av-hero-role {
+  margin: clamp(12px, 2vw, 20px) 0 0;
+  font-family: var(--av-sans);
+  font-size: clamp(0.8rem, 1.6vw, 1rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--av-selenium);
+}

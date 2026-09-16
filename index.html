@@ -5,23 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Esteban Silva — Fotografia</title>
+    <script>
+      // Companion to public/404.html's redirect: restores the real path
+      // (encoded in the query string) before React Router reads the URL.
+      (function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(null, "", l.pathname.slice(0, -1) + decoded + l.hash);
+        }
+      })(window.location);
+    </script>
     <meta
       name="description"
-      content="Fotografia de moda, retrato y documental en Bogota. La misma paciencia para una calle que para un set."
+      content="Fotografia de retrato, calle y trabajo comercial en Bogota. La misma paciencia para una calle que para un set."
     />
     <meta name="author" content="Esteban Silva" />
 
     <meta property="og:title" content="Esteban Silva — Fotografia" />
     <meta
       property="og:description"
-      content="Fotografia de moda, retrato y documental en Bogota. La misma paciencia para una calle que para un set."
+      content="Fotografia de retrato, calle y trabajo comercial en Bogota. La misma paciencia para una calle que para un set."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/assets/brand/cover.png" />
+    <meta property="og:image" content="%BASE_URL%assets/brand/cover.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="/assets/brand/cover.png" />
+    <meta name="twitter:image" content="%BASE_URL%assets/brand/cover.png" />
 
-    <link rel="icon" href="/assets/brand/favicon.png" />
+    <link rel="icon" href="%BASE_URL%assets/brand/favicon.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

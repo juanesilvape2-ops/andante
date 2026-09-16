@@ -54,6 +54,7 @@
   gap: 40px;
   align-items: start;
 }
+.av-foot h1,
 .av-foot h3 {
   font-family: var(--av-serif);
   font-weight: 400;
@@ -106,4 +107,35 @@
   .av-foot {
     grid-template-columns: 1fr;
   }
+}
+
+/* --- global minimal footer (every page except Contacto) --- */
+.av-global-foot {
+  padding: clamp(28px, 4vw, 40px) 0 clamp(32px, 5vw, 48px);
+}
+.av-global-foot-row {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 18px;
+}
+.av-global-foot-link {
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  color: var(--av-muted);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 3px;
+  transition:
+    color 0.22s ease,
+    border-color 0.22s ease;
+}
+.av-global-foot-link:hover,
+.av-global-foot-link:focus-visible {
+  color: var(--av-ink);
+  border-bottom-color: var(--av-selenium);
+}
+.av-global-foot .av-colophon {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
 }
