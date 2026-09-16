@@ -1,0 +1,84 @@
+/* --- nav: thin, fixed, rule underneath --- */
+.av-nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px clamp(20px, 5vw, 72px);
+  background: linear-gradient(180deg, rgba(7, 9, 12, 0.92), rgba(7, 9, 12, 0));
+  backdrop-filter: blur(6px);
+}
+.av-wordmark {
+  font-family: var(--av-serif);
+  font-size: 1.25rem;
+  letter-spacing: 0.01em;
+  color: var(--av-ink);
+  text-decoration: none;
+}
+.av-wordmark span {
+  color: var(--av-muted);
+}
+.av-navlinks {
+  display: flex;
+  gap: clamp(14px, 3vw, 34px);
+  align-items: center;
+}
+.av-navlink {
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  color: var(--av-muted);
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 1px solid transparent;
+  transition:
+    color 0.22s ease,
+    border-color 0.22s ease;
+}
+.av-navlink:hover,
+.av-navlink:focus-visible {
+  color: var(--av-ink);
+  border-bottom-color: var(--av-selenium);
+}
+
+/* --- CTA 1: nav, hairline rule that fills from the left --- */
+.av-cta-rule {
+  position: relative;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  color: var(--av-ink);
+  text-decoration: none;
+  padding-bottom: 4px;
+}
+.av-cta-rule::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  background: var(--av-rule);
+}
+.av-cta-rule::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 0;
+  background: var(--av-silver);
+  transition: width 0.3s ease;
+  z-index: 1;
+}
+.av-cta-rule:hover::before,
+.av-cta-rule:focus-visible::before {
+  width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .av-cta-rule::before {
+    transition: none;
+  }
+}

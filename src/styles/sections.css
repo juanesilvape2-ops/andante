@@ -1,0 +1,33 @@
+.av-section {
+  padding: clamp(72px, 12vw, 148px) 0 0;
+}
+.av-sechead {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  align-items: end;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--av-rule);
+}
+.av-sechead h2 {
+  font-family: var(--av-serif);
+  font-weight: 400;
+  font-size: clamp(2rem, 5.6vw, 4rem);
+  line-height: 1;
+  margin: 0;
+}
+.av-sechead p {
+  color: var(--av-muted);
+  font-size: 0.92rem;
+  max-width: 30ch;
+  margin: 0;
+  text-align: right;
+}
+.av-index {
+  font-family: var(--av-sans);
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  color: var(--av-selenium);
+  display: block;
+  margin-bottom: 14px;
+}
