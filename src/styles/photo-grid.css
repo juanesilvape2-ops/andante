@@ -20,6 +20,7 @@
 .av-plate {
   position: relative;
   overflow: hidden;
+  margin: 0;
   background: var(--av-base-lift);
   flex-basis: 0;
   min-width: 0;
@@ -55,6 +56,13 @@
   .av-row--inset-right {
     width: 100%;
     margin-left: 0;
+  }
+  .av-plate {
+    /* Overrides the inline flex-grow (aspect-ratio based, only meaningful
+       in a horizontal justified row) so stacked plates size to their
+       image's natural height instead of collapsing to 0. */
+    flex: 0 0 auto !important;
+    width: 100%;
   }
   .av-plate figcaption {
     opacity: 1;

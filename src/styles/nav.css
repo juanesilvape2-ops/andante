@@ -17,6 +17,7 @@
   letter-spacing: 0.01em;
   color: var(--av-ink);
   text-decoration: none;
+  white-space: nowrap;
 }
 .av-wordmark span {
   color: var(--av-muted);
@@ -51,6 +52,26 @@
   }
   .av-navlink {
     font-size: 0.82rem;
+  }
+}
+
+/* Extra-narrow phones (e.g. 320px iPhone SE): the 420px sizes above still
+   overflow, wrapping the wordmark onto two lines. */
+@media (max-width: 359px) {
+  .av-nav {
+    gap: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .av-wordmark {
+    font-size: 1.2rem;
+  }
+  .av-navlinks {
+    gap: 8px;
+  }
+  .av-navlink,
+  .av-cta-rule {
+    font-size: 0.74rem;
   }
 }
 .av-navlink:hover,
