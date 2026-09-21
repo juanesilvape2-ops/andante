@@ -71,7 +71,7 @@ export function GalleryPage() {
           ))}
         </nav>
 
-        {categories.map((category, i) => {
+        {categories.map((category) => {
           const sectionPhotos = photosByCategory(category.id);
 
           return (
@@ -84,10 +84,7 @@ export function GalleryPage() {
               }}
             >
               <div className="av-sechead">
-                <div>
-                  <span className="av-index">{String(i + 1).padStart(2, "0")}</span>
-                  <h2>{category.label}</h2>
-                </div>
+                <h2>{category.label}</h2>
                 <p>{category.tagline}</p>
               </div>
 

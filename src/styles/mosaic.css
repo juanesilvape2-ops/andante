@@ -75,12 +75,6 @@
   flex-direction: column;
   gap: 6px;
 }
-.av-mosaic-index {
-  font-family: var(--av-sans);
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  color: var(--av-selenium);
-}
 .av-mosaic-label {
   font-family: var(--av-serif);
   font-weight: 400;

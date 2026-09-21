@@ -29,15 +29,7 @@ const mosaicTiles = categories
   })
   .filter((tile): tile is { category: Category; photo: Photo } => tile !== null);
 
-function MosaicTile({
-  category,
-  index,
-  photo,
-}: {
-  category: Category;
-  index: number;
-  photo: Photo;
-}) {
+function MosaicTile({ category, photo }: { category: Category; photo: Photo }) {
   return (
     <Reveal as="div" className={`av-mosaic-slot av-mosaic-slot--${category.id}`}>
       <Link className="av-mosaic-tile" to={`/galeria#${category.id}`}>
@@ -49,7 +41,6 @@ function MosaicTile({
           width={photo.w}
         />
         <span className="av-mosaic-caption">
-          <span className="av-mosaic-index">{String(index + 1).padStart(2, "0")}</span>
           <span className="av-mosaic-label">{category.label}</span>
           <span className="av-mosaic-tagline">{category.tagline}</span>
         </span>
@@ -82,13 +73,8 @@ export function HomePage() {
             </Reveal>
 
             <div className="av-mosaic">
-              {mosaicTiles.map((tile, index) => (
-                <MosaicTile
-                  category={tile.category}
-                  index={index}
-                  key={tile.category.id}
-                  photo={tile.photo}
-                />
+              {mosaicTiles.map((tile) => (
+                <MosaicTile category={tile.category} key={tile.category.id} photo={tile.photo} />
               ))}
             </div>
 
